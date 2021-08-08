@@ -6,21 +6,9 @@
 ## `StringWrapper`
 Provides a lazy `abstract type StringWrapper <: AbstractString end` interface implementation,
 delegating `AbstractString` API methods
-- `firstindex`
-- `lastindex`
-- `length`
-- `ncodeunits`
-- `sizeof`
-
-- `getindex`
-- `codeunit`
-- `isvalid`
-
-- `thisind`
-- `prevind`
-- `nextind`
-
-- `iterate`
+- index boundaries and sizes: `firstindex`, `lastindex`, `length`, `ncodeunits`, `sizeof`
+- getting elements `getindex`, `iterate`, `codeunit`
+- codeunits and indices: `isvalid`, `thisind`, `prevind`, `nextind`
 - `SubString`
 
 All you need for a concrete `StringWrapper`: provide a `LazyStrings.representation` method.
