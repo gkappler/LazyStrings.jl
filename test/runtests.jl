@@ -2,13 +2,10 @@ using LazyStrings
 using Test
 
 @testset "CharMappedString" begin
-    @test CharMappedString(lowercase, "HallO") == "hallo"
-    @test CharMappedString(uppercase, "HallO") == "HALLO"
+    @test lmap(lowercase, "HallO") == "hallo"
+    @test lmap(uppercase, "HallO") == "HALLO"
+    @test lmap(lowercase,"JuliaCon")[1] ==  map(lowercase,"JuliaCon")[1]
 end
-
-using BenchmarkTools
-@btime lmap(lowercase,"JuliaCon")[1]
-@btime map(lowercase,"JuliaCon")[1]
 
 @testset "ReversedString" begin
     @testset "prevind, nextind" begin
