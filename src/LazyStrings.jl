@@ -42,6 +42,6 @@ tuple_state(i) = i[2]
         x.f(tuple_pos(j)), tuple_state(j)
     end
 @inline Base.@propagate_inbounds Base.SubString(x::CharMappedString,start::Int,stop::Int) =
-    CharMappedString(SubString(x.x,start,stop), x.f)
+    lmap(x.f, SubString(x.x,start,stop))
 
 end
