@@ -9,8 +9,6 @@ using Test
     @test SubString(lmap(lowercase,"JuliaCon"),1:5) ==  SubString(map(lowercase,"JuliaCon"),1:5)
 end
 
-
-DocumenterTools.genkeys(user="gkappler", repo="LazyStrings.jl")
 @testset "ReversedString" begin
     @testset "prevind, nextind" begin
         s = "abc"
