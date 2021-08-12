@@ -10,8 +10,8 @@ delegating `AbstractString` API methods
 - getting elements `getindex`, `iterate`, `codeunit`
 - codeunits and indices: `isvalid`, `thisind`, `prevind`, `nextind`
 - `SubString`
-
-All you need for a concrete `StringWrapper`: provide a `LazyStrings.representation` method.
+`LazyStrings.jl` provides similar functionality for `AbstractString`s 
+as [LazyArrays.jl](https://github.com/JuliaArrays/LazyArrays.jl) for `Vector`s.
 
 These sources have been reviewed for `AbstractString` interface methods.
 - https://docs.julialang.org/en/v1/base/strings/
@@ -26,7 +26,11 @@ Note:
 The package is used in [CombinedParsers.jl](https://github.com/gkappler/CombinedParsers.jl) for lookbehind parsers and parsers on a lazyly transformed `String` (e.g. `lowercase`).
 [ReversedStrings.jl](https://github.com/gkappler/ReversedStrings.jl/) was the deprecated and moved into this package.
 
-## `CharMappedString`
+
+## Custom `StringWrapper`
+All you need is provide a `LazyStrings.representation` method.
+
+## Lazy `CharMappedString`
 
 ```julia
 julia> using LazyStrings
@@ -42,7 +46,7 @@ julia> @btime map(lowercase,"JuliaCon")[1]
 'j': ASCII/Unicode U+006A (category Ll: Letter, lowercase)
 ```
 
-## `ReversedString`
+## Lazy `ReversedString`
 
 A lazy `reverse` implementation
 ```julia
