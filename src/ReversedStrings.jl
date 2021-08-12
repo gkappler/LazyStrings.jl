@@ -64,7 +64,8 @@ Create a reversed `SubString` using [`reverse_index`](@ref).
 
 `codeunit(x.representation,`[`reverse_index`](@ref)`(x,i))`.
 """
-@inline Base.codeunit(s::ReversedString, i::Integer) = codeunit(x.representation, reverse_index(x,i))
+@inline Base.codeunit(x::ReversedString, i::Integer) =
+    codeunit(x.representation, reverse_index(x,i))
 
 """
     Base.isvalid(x::ReversedString,i::Int)
